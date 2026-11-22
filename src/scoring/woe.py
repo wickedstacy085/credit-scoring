@@ -94,7 +94,14 @@ class WoEBinner:
     @staticmethod
     def _interval_names(edges: list[float]) -> list[str]:
         b = [-np.inf, *edges, np.inf]
-        fmt = lambda v: "−∞" if v == -np.inf else ("+∞" if v == np.inf else f"{v:g}")
+        def fmt(v):
+            if v == -np.inf:
+                return "−∞"
+            if v == np.inf:
+                return "+∞"
+            if abs(v) >= 1000:
+                return f"{v:,.0f}".replace(",", " ")
+            return f"{v:.2f}".rstrip("0").rstrip(".").replace("-", "−")
         return [f"({fmt(b[i])}; {fmt(b[i + 1])}]" for i in range(len(b) - 1)]
 
     def _table(self, labels: pd.Series, y: pd.Series, names) -> pd.DataFrame:

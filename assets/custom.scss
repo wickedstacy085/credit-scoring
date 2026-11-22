@@ -1,22 +1,21 @@
 /*-- scss:defaults --*/
-$font-family-sans-serif: system-ui, -apple-system, "Segoe UI", sans-serif;
-$headings-font-weight: 650;
+$font-family-sans-serif: "Source Sans 3", "Source Sans Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+$headings-font-weight: 600;
 $link-decoration: none;
 
 /*-- scss:rules --*/
-main.content { max-width: 820px; }
+// Узкая колонка текста, как на академических сайтах: 65–75 знаков в строке.
+main.content { max-width: 760px; }
 p, li { line-height: 1.6; }
-h2 { margin-top: 2.25rem; font-size: 1.4rem; }
+h2 { margin-top: 2rem; font-size: 1.35rem; }
 h3 { font-size: 1.1rem; }
 
-// Ключевой вывод — карточка с акцентной линией
-.result-box {
-  border-left: 4px solid $primary;
-  background: rgba($primary, .06);
-  border-radius: 6px;
-  padding: .9rem 1.1rem;
-  margin: 1.5rem 0 2rem;
-}
-.result-box p:last-child { margin-bottom: 0; }
+.case-meta { font-size: .9rem; color: $text-muted; margin-bottom: 1.5rem; }
 
+// Аннотация: только тонкая линия слева, без заливки.
+.result-box { border-left: 3px solid $border-color; padding: .25rem 0 .25rem 1rem; margin: 1.5rem 0; }
+
+// Таблицы без зебры, с тонкими линиями.
 table { font-size: .92rem; font-variant-numeric: tabular-nums; }
+
+.btn-sm { margin: 0 .25rem .5rem 0; }
